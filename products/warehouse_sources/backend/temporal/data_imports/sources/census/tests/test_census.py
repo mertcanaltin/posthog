@@ -176,6 +176,7 @@ class TestCensusTransport:
             (CENSUS_API_V1, "destinations", "connection_details", {"user": "DEV"}),
             (CENSUS_API_V1, "workspaces", "notification_emails", ["alerts@example.com"]),
             (CENSUS_API_V2, "sources", "connection_details", {"user": "DEV"}),
+            (CENSUS_API_V2, "sources", "notification_emails", ["alerts@example.com"]),
             (CENSUS_API_V2, "destinations", "connection_details", {"user": "DEV"}),
         ]
     )

@@ -108,9 +108,21 @@ _V2_PATHS: dict[str, str] = {
     "datasets": "/api/v2/datasets",
 }
 
+# V2 source rows add `notification_emails`, which carries people's addresses.
+_V2_EXTRA_STRIP_FIELDS: dict[str, tuple[str, ...]] = {
+    "sources": ("notification_emails",),
+}
+
 CENSUS_ENDPOINTS_BY_VERSION: dict[str, dict[str, CensusEndpointConfig]] = {
     CENSUS_API_V1: _V1_ENDPOINTS,
-    CENSUS_API_V2: {name: dataclasses.replace(_V1_ENDPOINTS[name], path=path) for name, path in _V2_PATHS.items()},
+    CENSUS_API_V2: {
+        name: dataclasses.replace(
+            _V1_ENDPOINTS[name],
+            path=path,
+            strip_fields=_V1_ENDPOINTS[name].strip_fields + _V2_EXTRA_STRIP_FIELDS.get(name, ()),
+        )
+        for name, path in _V2_PATHS.items()
+    },
 }
 
 
