@@ -17,6 +17,7 @@ export const FEATURE_FLAG_LIST_RESOURCE_URI = 'ui://posthog/feature-flag-list.ht
 export const FEATURE_FLAG_TESTING_RESOURCE_URI = 'ui://posthog/feature-flag-testing.html'
 export const INLINE_SCAN_RESOURCE_URI = 'ui://posthog/inline-scan.html'
 export const INSIGHT_ACTORS_RESOURCE_URI = 'ui://posthog/insight-actors.html'
+export const INSIGHT_STORY_RESOURCE_URI = 'ui://posthog/insight-story.html'
 export const LLM_COSTS_RESOURCE_URI = 'ui://posthog/llm-costs.html'
 export const QUERY_RESULTS_RESOURCE_URI = 'ui://posthog/query-results.html'
 export const RENDER_UI_RESOURCE_URI = 'ui://posthog/render-ui.html'
@@ -51,6 +52,7 @@ export type UiAppKey =
     | 'feature-flag-testing'
     | 'inline-scan'
     | 'insight-actors'
+    | 'insight-story'
     | 'llm-costs'
     | 'query-results'
     | 'render-ui'
@@ -85,6 +87,7 @@ export const URI_MAP: Record<UiAppKey, string> = {
     'feature-flag-testing': FEATURE_FLAG_TESTING_RESOURCE_URI,
     'inline-scan': INLINE_SCAN_RESOURCE_URI,
     'insight-actors': INSIGHT_ACTORS_RESOURCE_URI,
+    'insight-story': INSIGHT_STORY_RESOURCE_URI,
     'llm-costs': LLM_COSTS_RESOURCE_URI,
     'query-results': QUERY_RESULTS_RESOURCE_URI,
     'render-ui': RENDER_UI_RESOURCE_URI,
@@ -123,6 +126,7 @@ export const DISPATCHABLE_APP_KEYS: UiAppKey[] = [
     'feature-flag-testing',
     'inline-scan',
     'insight-actors',
+    'insight-story',
     'llm-costs',
     'query-results',
     'session-recording',
@@ -245,6 +249,12 @@ export const UI_APPS: Array<{
         uri: INSIGHT_ACTORS_RESOURCE_URI,
         description: 'Insight Actors detail view',
         appDir: 'generated/insight-actors',
+    },
+    {
+        name: 'PostHog Chart Walkthrough',
+        uri: INSIGHT_STORY_RESOURCE_URI,
+        description: 'A trends chart with the moments that stand out highlighted, explained one chapter at a time.',
+        appDir: 'insight-story',
     },
     {
         name: 'PostHog Llm Costs',
